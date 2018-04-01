@@ -1,24 +1,32 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Book from "./Book";
+import { Container, Header, Grid } from "semantic-ui-react";
+import Slider from "react-slick";
+import sliderConfig from "./config/sliderConfig";
 
 const Shelf = ({ title, shelf, books, updateShelf }) => {
   const currentBooks = books.filter(book => book.shelf === shelf)
 
-  return (
-    <div className="bookshelf">
-      <h2 className="bookshelf-title">{title}</h2>
-      <div className="bookshelf-books">
-        <ol className="books-grid">
-          {currentBooks.map((book) => (
-            <li key={book.id}>
-              <Book book={book} updateShelf={updateShelf} />
-            </li>
-          ))}
-        </ol>
-      </div>
-    </div>
-  )
+  return <Container style={{ marginTop: "3em" }}>
+      <Header as="h3" dividing>
+        {title}
+      </Header>
+
+      <Grid verticalAlign="middle" columns={1} centered>
+        <Grid.Row>
+          <Grid.Column>
+            <Slider {...sliderConfig}>
+              {currentBooks.map(book =>
+                <div key={book.id}>
+                  <Book key={book.id} book={book} updateShelf={updateShelf} />
+                </div>
+              )}
+            </Slider>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>;
 }
 
 Shelf.propTypes = {
