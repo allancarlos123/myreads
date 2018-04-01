@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ShelfChanger from "./ShelfChanger";
 import ModalBook from "./ModalBook";
+import BookCover from "./components/BookCover";
 
 class Book extends Component {
   state = { modalOpen: false };
@@ -20,29 +21,30 @@ class Book extends Component {
     return (
       <div className="book">
         <div className="book-top">
-          <div
-            onClick={this.handleOpen}
-            className="book-cover"
-            style={{
-              backgroundImage: `url(${
-                book.imageLinks
-                  ? book.imageLinks.thumbnail
-                  : "http://via.placeholder.com/128x188?text=no+available"
-              })`
-            }}
-          />
+          <BookCover book={book} handleOpen={this.handleOpen} />
+
           <ShelfChanger
             updateShelf={updateShelf}
             currentShelf={book.shelf}
             book={book}
           />
         </div>
-        <div className="book-title" onClick={this.handleOpen}>{book.title}</div>
+
+        <div className="book-title" onClick={this.handleOpen}>
+          {book.title}
+        </div>
+        
         <div className="book-authors">
           {book.authors ? book.authors.join(", ") : ""}
         </div>
+
         <div>
-          <ModalBook book={book} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+          <ModalBook
+            book={book}
+            modalOpen={this.state.modalOpen}
+            handleOpen={this.handleOpen}
+            handleClose={this.handleClose}
+          />
         </div>
       </div>
     );
