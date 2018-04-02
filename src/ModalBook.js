@@ -29,7 +29,13 @@ class SingleBook extends Component {
               <Header as="h2" content={book.title} subheader={book.subtitle} />
 
               <small>{book.ratingsCount}</small>
-              <Rating icon="star" size="huge" defaultRating={book.averageRating} maxRating={5} />
+              <Rating
+                icon="star"
+                size="huge"
+                defaultRating={book.averageRating}
+                maxRating={5}
+                disabled
+              />
             </Header>
 
             {book.categories ? book.categories.map((category, i) => (
