@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
+import { Debounce } from "react-throttle";
 import Book from "./Book";
 
 class SearchBook extends Component {
@@ -10,7 +11,7 @@ class SearchBook extends Component {
   };
 
   searchBook = query => {
-    this.props.searchBook(query);
+    this.props.searchBook(query.trim());
   };
 
   componentWillUnmount() {
@@ -25,11 +26,13 @@ class SearchBook extends Component {
             Close
           </Link>
           <div className="search-books-input-wrapper">
-            <input
-              type="text"
-              placeholder="Search by title or author"
-              onChange={e => this.searchBook(e.target.value)}
-            />
+            <Debounce time="1000" handler="onChange">
+              <input
+                type="text"
+                placeholder="Search by title or author"
+                onChange={e => this.searchBook(e.target.value)}
+              />
+            </Debounce>
           </div>
         </div>
         <div className="search-books-results">
