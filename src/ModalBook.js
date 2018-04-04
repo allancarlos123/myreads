@@ -21,7 +21,7 @@ class SingleBook extends Component {
   render() {
     const { book } = this.props;
 
-    return <Modal open={this.props.modalOpen} onClose={this.props.handleClose}>
+    return <Modal open={this.props.modalOpen} onClose={this.props.handleClose} closeIcon>
         <Modal.Content image>
           <Image className="cover-book" rounded size="small" src={book.imageLinks ? book.imageLinks.thumbnail : "http://via.placeholder.com/128x188?text=no+available"} />
           <Modal.Description className="book-description">
