@@ -2,7 +2,6 @@ import React from "react";
 import { PropTypes } from 'prop-types';
 
 const BookCover = ({ book, handleOpen }) => {
-	console.log(book)
   return (
     <div
       onClick={handleOpen}
