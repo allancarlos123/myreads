@@ -15,13 +15,14 @@ import "./ModalBook.css";
 class SingleBook extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
-    modalOpen: PropTypes.bool.isRequired
+    modalOpen: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired
   };
 
   render() {
-    const { book } = this.props;
+    const { book, modalOpen, handleClose } = this.props;
 
-    return <Modal open={this.props.modalOpen} onClose={this.props.handleClose} closeIcon>
+    return <Modal open={modalOpen} onClose={handleClose} closeIcon>
         <Modal.Content image>
           <Image
             className="cover-book"

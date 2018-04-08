@@ -44,6 +44,7 @@ class Book extends Component {
             modalOpen={this.state.modalOpen}
             handleOpen={this.handleOpen}
             handleClose={this.handleClose}
+            updateShelf={this.updateShelf}
           />
         </div>
       </div>
