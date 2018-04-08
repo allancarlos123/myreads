@@ -23,12 +23,22 @@ class SingleBook extends Component {
 
     return <Modal open={this.props.modalOpen} onClose={this.props.handleClose} closeIcon>
         <Modal.Content image>
-          <Image className="cover-book" rounded size="small" src={book.imageLinks ? book.imageLinks.thumbnail : "http://via.placeholder.com/128x188?text=no+available"} />
+          <Image
+            className="cover-book"
+            rounded
+            size="small"
+            src={book.imageLinks
+              ? book.imageLinks.thumbnail
+              : "http://via.placeholder.com/128x188?text=no+available"
+            }
+          />
+
           <Modal.Description className="book-description">
             <Header>
               <Header as="h2" content={book.title} subheader={book.subtitle} />
 
-              <small>{book.ratingsCount}</small>
+              <small>{book.ratingsCount || 0}</small>
+
               <Rating
                 icon="star"
                 size="huge"
@@ -38,16 +48,23 @@ class SingleBook extends Component {
               />
             </Header>
 
-            {book.categories ? book.categories.map((category, i) => (
-                  <Label as="a" key={i}>
-                    {category}
-                  </Label>
-                )) : ""}
+            {book.categories && book.categories.map((category, i) => (
+              <Label as="a" key={i}>
+                { category }
+              </Label>
+            ))}
 
             <h3>Description</h3>
             <p>{book.description || "No description available"}</p>
 
-            <Button as={Link} to={book.previewLink} target="noblank" icon="external" positive content="Open external" />
+            <Button
+              as={Link}
+              to={book.previewLink}
+              target="noblank"
+              icon="external"
+              positive
+              content="Open external"
+            />
 
             <h3>More details</h3>
             <Table basic="very" celled collapsing>
@@ -76,7 +93,7 @@ class SingleBook extends Component {
                   <Table.Cell style={{'listStyle': 'inside'}}>
                     {book.industryIdentifiers.map(id => (
                       <li key={id.identifier}>
-                        {id.type} {id.identifier}
+                        { id.type } { id.identifier }
                       </li>
                     ))}
                   </Table.Cell>
