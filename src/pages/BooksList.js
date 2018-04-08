@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Shelf from "./Shelf";
+import Shelf from "../components/Shelf";
 
 const ListBooks = ({ books, updateShelf }) => {
   const shelves = [
