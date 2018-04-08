@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import * as BooksAPI from "./utils/BooksAPI";
 import * as QuotesAPI from "./utils/getQuotes";
 import { Switch, Route } from "react-router-dom";
-import { Header, Dimmer } from 'semantic-ui-react'
-
-import Quote from "./components/Quote";
 import BooksList from "./pages/BooksList";
 import SearchBook from "./pages/SearchBook";
 import "./App.css";
@@ -67,17 +64,12 @@ class App extends Component {
     
     return (
       <div className="app">
-        <Dimmer.Dimmable blurring dimmed={loading}>
-          <Dimmer inverted active={loading}>
-            <Quote quote={quote} />
-          </Dimmer>
-        
           <Switch>
             <Route
               exact
               path="/"
               render={() => (
-                <BooksList books={books} updateShelf={this.updateShelf} />
+                <BooksList books={books} updateShelf={this.updateShelf} loading={loading} quote={quote} />
               )}
             />
 
@@ -92,7 +84,7 @@ class App extends Component {
               )}
             />
           </Switch>
-        </Dimmer.Dimmable>
+        
       </div>
     );
   }
