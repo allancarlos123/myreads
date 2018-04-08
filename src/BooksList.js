@@ -5,11 +5,11 @@ import Shelf from "./Shelf";
 
 const ListBooks = ({ books, updateShelf }) => {
   const shelves = [
-    { title: '🤩 Currently reading', shelf: 'currentlyReading', books, updateShelf },
-    { title: '🤗 Want to read', shelf: 'wantToRead', books, updateShelf },
-    { title: '😎 Read', shelf: 'read', books, updateShelf }
-  ]
-  
+    { title: "🤩 Currently reading", shelf: "currentlyReading", books, updateShelf },
+    { title: "🤗 Want to read", shelf: "wantToRead", books, updateShelf },
+    { title: "😎 Read", shelf: "read", books, updateShelf }
+  ];
+
   return (
     <div className="list-books">
       <div className="list-books-title">
@@ -38,6 +38,6 @@ const ListBooks = ({ books, updateShelf }) => {
 ListBooks.propTypes = {
   books: PropTypes.array.isRequired,
   updateShelf: PropTypes.func.isRequired
-}
+};
 
 export default ListBooks;
