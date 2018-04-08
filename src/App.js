@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
 import * as BooksAPI from "./utils/BooksAPI";
+import * as QuotesAPI from "./utils/getQuotes";
+import { Switch, Route } from "react-router-dom";
+import { Header, Dimmer } from 'semantic-ui-react'
+
+import Quote from "./components/Quote";
 import BooksList from "./pages/BooksList";
 import SearchBook from "./pages/SearchBook";
 import "./App.css";
@@ -8,12 +12,21 @@ import "./App.css";
 class App extends Component {
   state = {
     books: [],
-    results: []
+    results: [],
+    quote: [],
+    loading: true
   };
-
+  
   componentDidMount() {
+    QuotesAPI.get().then(quote => {
+      this.setState({ quote })
+    })
+    
     BooksAPI.getAll().then(books => {
-      this.setState({ books });
+      this.setState({
+        books,
+        loading: false
+      });
     })
   }
 
@@ -50,30 +63,36 @@ class App extends Component {
   };
 
   render() {
-    const { books, results } = this.state;
-
+    const { books, results, loading, quote } = this.state;
+    
     return (
       <div className="app">
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <BooksList books={books} updateShelf={this.updateShelf} />
-            )}
-          />
+        <Dimmer.Dimmable blurring dimmed={loading}>
+          <Dimmer inverted active={loading}>
+            <Quote quote={quote} />
+          </Dimmer>
+        
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <BooksList books={books} updateShelf={this.updateShelf} />
+              )}
+            />
 
-          <Route
-            path="/search"
-            render={() => (
-              <SearchBook
-                results={results}
-                updateShelf={this.updateShelf}
-                searchBook={this.searchBook}
-              />
-            )}
-          />
-        </Switch>
+            <Route
+              path="/search"
+              render={() => (
+                <SearchBook
+                  results={results}
+                  updateShelf={this.updateShelf}
+                  searchBook={this.searchBook}
+                />
+              )}
+            />
+          </Switch>
+        </Dimmer.Dimmable>
       </div>
     );
   }
