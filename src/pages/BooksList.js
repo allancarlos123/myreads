@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Shelf from "../components/Shelf";
 
-const ListBooks = ({ books, updateShelf }) => {
+const BooksList = ({ books, updateShelf }) => {
   const shelves = [
     { title: "🤩 Currently reading", shelf: "currentlyReading", books, updateShelf },
     { title: "🤗 Want to read", shelf: "wantToRead", books, updateShelf },
@@ -35,9 +35,9 @@ const ListBooks = ({ books, updateShelf }) => {
   );
 };
 
-ListBooks.propTypes = {
+BooksList.propTypes = {
   books: PropTypes.array.isRequired,
   updateShelf: PropTypes.func.isRequired
 };
 
-export default ListBooks;
+export default BooksList;
