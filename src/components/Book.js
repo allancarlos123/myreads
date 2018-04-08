@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ShelfChanger from "./ShelfChanger";
 import ModalBook from "./ModalBook";
-import BookCover from "./components/BookCover";
+import BookCover from "./BookCover";
 
 class Book extends Component {
   state = { modalOpen: false };

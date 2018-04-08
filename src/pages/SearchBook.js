@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 import { Debounce } from "react-throttle";
-import Book from "./Book";
+import Book from "../components/Book";
 
 class SearchBook extends Component {
   static propTypes = {

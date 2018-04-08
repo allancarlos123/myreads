@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Book from "./Book";
 import { Container, Header, Grid } from "semantic-ui-react";
 import Slider from "react-slick";
-import sliderConfig from "./config/sliderConfig";
+import sliderConfig from "../utils/sliderConfig";
 
 const Shelf = ({ title, shelf, books, updateShelf }) => {
   const currentBooks = books.filter(book => book.shelf === shelf)
