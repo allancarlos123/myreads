@@ -23,8 +23,7 @@ class SearchBook extends Component {
 
   render() {
     let { loading } = this.props
-    const { quote } = this.props
-    
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
