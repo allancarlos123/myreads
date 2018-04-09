@@ -7,7 +7,7 @@
     </td>
     <td>
       :octocat: Allan Carlos<br />
-      <a href="mailto:me@allancarlos.io">:mailbox: me@allancarlos.io</a><br />
+      <a href="mailto:me@allancarlos.io">:point_right: me@allancarlos.io</a><br />
       <a href="allancarlos.io">:point_right: allancarlos.io</a>
     </td>
   </tr>
