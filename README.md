@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td>
-      <img src="https://avatars1.githubusercontent.com/u/8354944?s=460&v=4" width="100">
+      <img style="border-radius: 5px" src="https://avatars1.githubusercontent.com/u/8354944?s=460&v=4" width="100">
     </td>
     <td>
       Allan Carlos<br />
