@@ -11,7 +11,7 @@ export default class App extends Component {
     books: [],
     results: [],
     quote: [],
-    loading: null
+    loading: true
   };
 
   componentDidMount() {
@@ -56,6 +56,9 @@ export default class App extends Component {
             results: books,
             loading: false
           });
+        }
+        if (!books.length) {
+          this.setState({ loading: false })
         }
       });
     } else {

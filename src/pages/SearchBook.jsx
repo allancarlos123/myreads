@@ -25,7 +25,7 @@ export default class SearchBook extends Component {
             Close
           </Link>
           <div className="search-books-input-wrapper">
-            <Debounce time="1000" handler="onChange">
+            <Debounce time="600" handler="onChange">
               <input
                 type="text"
                 placeholder="Search by title or author"
