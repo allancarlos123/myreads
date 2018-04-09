@@ -5,10 +5,11 @@ import { Container, Header, Grid } from "semantic-ui-react";
 import Slider from "react-slick";
 import sliderConfig from "../utils/sliderConfig";
 
-const Shelf = ({ title, shelf, books, updateShelf }) => {
-  const currentBooks = books.filter(book => book.shelf === shelf)
+export default function Shelf({ title, shelf, books, updateShelf }) {
+  const currentBooks = books.filter(book => book.shelf === shelf);
 
-  return <Container style={{ marginTop: "3em" }}>
+  return (
+    <Container style={{ marginTop: "3em" }}>
       <Header as="h3" dividing>
         {title}
       </Header>
@@ -17,16 +18,17 @@ const Shelf = ({ title, shelf, books, updateShelf }) => {
         <Grid.Row>
           <Grid.Column>
             <Slider {...sliderConfig}>
-              {currentBooks.map(book =>
+              {currentBooks.map(book => (
                 <div key={book.id}>
                   <Book key={book.id} book={book} updateShelf={updateShelf} />
                 </div>
-              )}
+              ))}
             </Slider>
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </Container>;
+    </Container>
+  );
 }
 
 Shelf.propTypes = {
@@ -34,6 +36,4 @@ Shelf.propTypes = {
   shelf: PropTypes.string.isRequired,
   books: PropTypes.array.isRequired,
   updateShelf: PropTypes.func.isRequired
-}
-
-export default Shelf;
+};

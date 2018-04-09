@@ -6,25 +6,28 @@ import BooksList from "./pages/BooksList";
 import SearchBook from "./pages/SearchBook";
 import "./App.css";
 
-class App extends Component {
+export default class App extends Component {
   state = {
     books: [],
     results: [],
     quote: [],
-    loading: true
+    loading: null
   };
-  
+
   componentDidMount() {
     QuotesAPI.get().then(quote => {
-      this.setState({ quote })
-    })
-    
+      this.setState({
+        quote,
+        loading: true
+      });
+    });
+
     BooksAPI.getAll().then(books => {
       this.setState({
         books,
         loading: false
       });
-    })
+    });
   }
 
   updateShelf = (shelf, book) => {
@@ -39,7 +42,7 @@ class App extends Component {
 
   searchBook = query => {
     if (query) {
-      this.setState({ loading: true })
+      this.setState({ loading: true });
 
       BooksAPI.search(query).then(books => {
         if (books.length) {
@@ -65,40 +68,37 @@ class App extends Component {
 
   render() {
     const { books, results, loading, quote } = this.state;
-    
+
     return (
       <div className="app">
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <BooksList
-                  books={books}
-                  updateShelf={this.updateShelf}
-                  loading={loading}
-                  quote={quote}
-                  />
-                )}
-                />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <BooksList
+                books={books}
+                updateShelf={this.updateShelf}
+                loading={loading}
+                quote={quote}
+              />
+            )}
+          />
 
-            <Route
-              path="/search"
-              render={() => (
-                <SearchBook
+          <Route
+            path="/search"
+            render={() => (
+              <SearchBook
                 results={results}
                 updateShelf={this.updateShelf}
                 searchBook={this.searchBook}
                 loading={loading}
                 quote={quote}
-                />
-              )}
-            />
-          </Switch>
-        
+              />
+            )}
+          />
+        </Switch>
       </div>
     );
   }
 }
-
-export default App;

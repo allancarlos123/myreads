@@ -1,11 +1,11 @@
 import React from "react";
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
 
-const BookCover = ({ book, handleOpen }) => {
+export default function BookCover({ book, handleOpen }) {
   return (
     <div
-      onClick={handleOpen}
       className="book-cover"
+      onClick={handleOpen}
       style={{
         backgroundImage: `url(${
           book.imageLinks
@@ -15,11 +15,9 @@ const BookCover = ({ book, handleOpen }) => {
       }}
     />
   );
-};
+}
 
 BookCover.propTypes = {
-	book: PropTypes.object.isRequired,
-	handleOpen: PropTypes.func.isRequired
+  book: PropTypes.object.isRequired,
+  handleOpen: PropTypes.func.isRequired
 };
-
-export default BookCover;

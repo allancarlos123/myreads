@@ -10,27 +10,22 @@ import {
   Header,
   Image
 } from "semantic-ui-react";
-import "./ModalBook.css";
 
-class SingleBook extends Component {
-  static propTypes = {
-    book: PropTypes.object.isRequired,
-    modalOpen: PropTypes.bool.isRequired,
-    handleClose: PropTypes.func.isRequired
-  };
-
+export default class SingleBook extends Component {
   render() {
     const { book, modalOpen, handleClose } = this.props;
 
-    return <Modal open={modalOpen} onClose={handleClose} closeIcon>
+    return (
+      <Modal open={modalOpen} onClose={handleClose} closeIcon>
         <Modal.Content image>
           <Image
             className="cover-book"
             rounded
             size="small"
-            src={book.imageLinks
-              ? book.imageLinks.thumbnail
-              : "http://via.placeholder.com/128x188?text=no+available"
+            src={
+              book.imageLinks
+                ? book.imageLinks.thumbnail
+                : "http://via.placeholder.com/128x188?text=no+available"
             }
           />
 
@@ -49,11 +44,12 @@ class SingleBook extends Component {
               />
             </Header>
 
-            {book.categories && book.categories.map((category, i) => (
-              <Label as="a" key={i}>
-                { category }
-              </Label>
-            ))}
+            {book.categories &&
+              book.categories.map(category => (
+                <Label as="a" key={category}>
+                  {category}
+                </Label>
+              ))}
 
             <h3>Description</h3>
             <p>{book.description || "No description available"}</p>
@@ -81,20 +77,16 @@ class SingleBook extends Component {
 
               <Table.Body>
                 <Table.Row>
-                  <Table.Cell>
-                    {book.publisher || "No available"}
-                  </Table.Cell>
+                  <Table.Cell>{book.publisher || "No available"}</Table.Cell>
                   <Table.Cell>
                     {book.publishedDate || "No available"}
                   </Table.Cell>
-                  <Table.Cell>
-                    {book.pageCount || "No available"}
-                  </Table.Cell>
+                  <Table.Cell>{book.pageCount || "No available"}</Table.Cell>
                   <Table.Cell>{book.language || "No available"}</Table.Cell>
-                  <Table.Cell style={{'listStyle': 'inside'}}>
+                  <Table.Cell style={{ listStyle: "inside" }}>
                     {book.industryIdentifiers.map(id => (
                       <li key={id.identifier}>
-                        { id.type } { id.identifier }
+                        {id.type} {id.identifier}
                       </li>
                     ))}
                   </Table.Cell>
@@ -103,8 +95,16 @@ class SingleBook extends Component {
             </Table>
           </Modal.Description>
         </Modal.Content>
-      </Modal>;
+      </Modal>
+    );
   }
 }
 
-export default SingleBook;
+SingleBook.propTypes = {
+  book: PropTypes.object.isRequired,
+  modalOpen: PropTypes.bool,
+  handleClose: PropTypes.func.isRequired
+};
+SingleBook.defaultProps = {
+  modalOpen: null
+};
