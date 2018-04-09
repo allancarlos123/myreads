@@ -6,13 +6,7 @@ import { Dimmer, Loader } from "semantic-ui-react";
 
 import Book from "../components/Book";
 
-class SearchBook extends Component {
-  static propTypes = {
-    loading: PropTypes.bool.isRequired,
-    results: PropTypes.array.isRequired,
-    updateShelf: PropTypes.func.isRequired
-  };
-
+export default class SearchBook extends Component {
   searchBook = query => {
     this.props.searchBook(query.trim());
   };
@@ -22,7 +16,7 @@ class SearchBook extends Component {
   }
 
   render() {
-    let { loading } = this.props
+    let { loading } = this.props;
 
     return (
       <div className="search-books">
@@ -43,7 +37,7 @@ class SearchBook extends Component {
 
         <Dimmer.Dimmable blurring dimmed={loading}>
           <Dimmer active={loading} inverted>
-            <Loader inverted content='Loading' />
+            <Loader inverted content="Loading" />
           </Dimmer>
 
           <div className="search-books-results">
@@ -65,4 +59,11 @@ class SearchBook extends Component {
   }
 }
 
-export default SearchBook;
+SearchBook.propTypes = {
+  loading: PropTypes.bool,
+  results: PropTypes.array.isRequired,
+  updateShelf: PropTypes.func.isRequired
+};
+SearchBook.defaultProps = {
+  loading: null
+}

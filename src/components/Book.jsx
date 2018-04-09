@@ -4,12 +4,9 @@ import ShelfChanger from "./ShelfChanger";
 import ModalBook from "./ModalBook";
 import BookCover from "./BookCover";
 
-class Book extends Component {
-  state = { modalOpen: false };
-
-  static propTypes = {
-    book: PropTypes.object.isRequired,
-    updateShelf: PropTypes.func.isRequired
+export default class Book extends Component {
+  state = {
+    modalOpen: null
   };
 
   handleOpen = () => this.setState({ modalOpen: true });
@@ -33,7 +30,7 @@ class Book extends Component {
         <div className="book-title" onClick={this.handleOpen}>
           {book.title}
         </div>
-        
+
         <div className="book-authors">
           {book.authors && book.authors.join(", ")}
         </div>
@@ -52,4 +49,7 @@ class Book extends Component {
   }
 }
 
-export default Book;
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  updateShelf: PropTypes.func.isRequired
+};

@@ -3,17 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Dimmer } from "semantic-ui-react";
 import Shelf from "../components/Shelf";
-import Quote from '../components/Quote';
+import Quote from "../components/Quote";
 
-class BookList extends Component {
-  static propTypes = {
-    loading: PropTypes.bool.isRequired,
-    books: PropTypes.array.isRequired,
-    updateShelf: PropTypes.func.isRequired
-  };
-
+export default class BookList extends Component {
   render() {
-    let { books, updateShelf, loading } = this.props
+    let { books, updateShelf, loading } = this.props;
     const { quote } = this.props;
 
     const shelves = [
@@ -58,4 +52,11 @@ class BookList extends Component {
   }
 }
 
-export default BookList;
+BookList.propTypes = {
+  loading: PropTypes.bool,
+  books: PropTypes.array.isRequired,
+  updateShelf: PropTypes.func.isRequired
+};
+BookList.defaultProps = {
+  loading: null
+};
