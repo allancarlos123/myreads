@@ -39,6 +39,8 @@ class App extends Component {
 
   searchBook = query => {
     if (query) {
+      this.setState({ loading: true })
+
       BooksAPI.search(query).then(books => {
         if (books.length) {
           books.forEach((book, index) => {
@@ -48,13 +50,15 @@ class App extends Component {
           });
 
           this.setState({
-            results: books
+            results: books,
+            loading: false
           });
         }
       });
     } else {
       this.setState({
-        results: []
+        results: [],
+        loading: false
       });
     }
   };
@@ -69,17 +73,24 @@ class App extends Component {
               exact
               path="/"
               render={() => (
-                <BooksList books={books} updateShelf={this.updateShelf} loading={loading} quote={quote} />
-              )}
-            />
+                <BooksList
+                  books={books}
+                  updateShelf={this.updateShelf}
+                  loading={loading}
+                  quote={quote}
+                  />
+                )}
+                />
 
             <Route
               path="/search"
               render={() => (
                 <SearchBook
-                  results={results}
-                  updateShelf={this.updateShelf}
-                  searchBook={this.searchBook}
+                results={results}
+                updateShelf={this.updateShelf}
+                searchBook={this.searchBook}
+                loading={loading}
+                quote={quote}
                 />
               )}
             />
