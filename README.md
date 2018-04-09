@@ -1,7 +1,5 @@
 ## Author
 
-@github/Udacity
-
 <table>
   <tr>
     <td>
