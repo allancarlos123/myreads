@@ -1,3 +1,27 @@
+## Demo
+
+![Demo](https://i.imgur.com/ONVzX7n.gif)
+
+## Install
+
+This project uses [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
+
+```sh
+$ yarn
+# or
+$ npm install
+```
+
+## Usage
+
+This is only a documentation package. You can print out [spec.md](spec.md) to your console:
+
+```sh
+$ yarn start
+# or
+$ npm start
+```
+
 ## Author
 
 <table>
