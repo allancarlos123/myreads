@@ -36,7 +36,7 @@ export default class SearchBook extends Component {
           </div>
         </div>
 
-        <Dimmer.Dimmable blurring dimmed={loading}>
+        <Dimmer.Dimmable dimmed={loading}>
           <Dimmer active={loading} inverted>
             <Loader inverted content="Loading" />
           </Dimmer>
