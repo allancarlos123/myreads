@@ -3,10 +3,11 @@ import { Header } from "semantic-ui-react";
 
 export default function Quote({ quote }) {
   return (
-    <Header as="h2" icon>
+    <Header as="h2">
       <img src="/images/brainstorm.svg" alt="" />
-      "{quote.quote}""
-      <Header.Subheader>- {quote.author}</Header.Subheader>
+
+      {quote && quote.quote}
+      <Header.Subheader content={quote.author} />
     </Header>
   );
 }

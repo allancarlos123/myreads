@@ -16,18 +16,16 @@ export default class App extends Component {
 
   componentDidMount() {
     QuotesAPI.get().then(quote => {
-      this.setState({
-        quote,
-        loading: false
-      });
+      this.setState({ quote });
     });
 
-    BooksAPI.getAll().then(books => {
-      this.setState({
-        books,
-        loading: false
-      });
-    });
+    BooksAPI.getAll()
+      .then(books => {
+        this.setState({ books });
+      })
+      .then(() => {
+        this.setState({ loading: false })
+      })
   }
 
   updateShelf = (shelf, book) => {
