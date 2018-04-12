@@ -18,7 +18,7 @@ export default class App extends Component {
     QuotesAPI.get().then(quote => {
       this.setState({
         quote,
-        loading: true
+        loading: false
       });
     });
 

@@ -84,11 +84,16 @@ export default class SingleBook extends Component {
                   <Table.Cell>{book.pageCount || "No available"}</Table.Cell>
                   <Table.Cell>{book.language || "No available"}</Table.Cell>
                   <Table.Cell style={{ listStyle: "inside" }}>
-                    {book.industryIdentifiers.map(id => (
-                      <li key={id.identifier}>
-                        {id.type} {id.identifier}
-                      </li>
-                    ))}
+                    {book.industryIdentifiers
+                      ? (book.industryIdentifiers.map(id => (
+                        <li key={id.identifier}>
+                          {id.type} {id.identifier}
+                        </li>
+                      )))
+                      : (
+                        "No identifier"
+                      )
+                    }
                   </Table.Cell>
                 </Table.Row>
               </Table.Body>
