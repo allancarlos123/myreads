@@ -10,7 +10,7 @@
 <br />
 
 <div align="center">
-  <sub>Made with much ❤️ and ☕️ by <a href="http://allancarlos.io">Allan Carlos</a>.</sub>
+  <sub>Made with much ❤️ and ☕️ by <a href="http://allancarlos.io">Allan Carlos</a>.</sub> <br />
   <sub>This project was built for the Udacity React Nanodegree Program.</sub>
 </div>
 
