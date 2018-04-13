@@ -32,7 +32,7 @@ export default class App extends Component {
     BooksAPI.update(book, shelf).then(() => {
       book.shelf = shelf;
       this.setState(state => ({
-        books: state.books.filter(b => b.id !== book.id).concat([book])
+        books: state.books.filter(b => b.id !== book.id).concat(book)
       }));
     });
   };
@@ -43,16 +43,12 @@ export default class App extends Component {
 
       BooksAPI.search(query).then(books => {
         if (books.length) {
+          // Verify and assign the book at shelf already defined
+          // or assign "none" if the book not have a shelf
           books.map(book => {
             let myBook = this.state.books.find(b => b.id === book.id);
             return book.shelf = myBook ? myBook.shelf : "none";
           })
-          
-          // books.forEach((book, index) => {
-          //   let myBook = this.state.books.find(b => b.id === book.id);
-          //   book.shelf = myBook ? myBook.shelf : "none";
-          //   books[index] = book;
-          // });
 
           this.setState({
             results: books,
