@@ -5,11 +5,6 @@
   <a href="https://david-dm.org/react-boilerplate/react-boilerplate">
     <img src="https://david-dm.org/react-boilerplate/react-boilerplate.svg" alt="Dependency Status" />
   </a>
-
-  <!-- Created by -->
-  <a href="http://allancarlos.io">
-    <img alt="Made by Allan" src="https://thinkmill.github.io/badge/heart.svg" />
-  </a>
 </div>
 
 <br />
