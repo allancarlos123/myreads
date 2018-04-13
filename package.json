@@ -1,5 +1,5 @@
 {
-  "homepage": "http://allancarlos123.github.io/reactnd-project-myreads-starter",
+  "homepage": "http://allancarlos123.github.io/myreads",
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
     "prop-types": "^15.5.8",
