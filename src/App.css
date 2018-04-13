@@ -31,6 +31,10 @@ body, .app {
   background: #fff;
   text-align: center;
 }
+.list-books-title img {
+  width: 40px;
+  vertical-align: bottom;
+}
 .list-books-title h1 {
   font-family: 'Lobster', cursive;
   font-weight: 400;
