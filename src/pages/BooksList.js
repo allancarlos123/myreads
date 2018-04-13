@@ -28,7 +28,7 @@ export default class BookList extends Component {
         </Dimmer>
         <div className="list-books">
           <div className="list-books-title">
-            <h1><img src="images/kitty.svg" /> MyReads</h1>
+            <h1><img src="images/kitty.svg" alt="" /> MyReads</h1>
           </div>
 
           <div className="list-books-content">
