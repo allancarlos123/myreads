@@ -10,7 +10,7 @@
 <br />
 
 <div align="center">
-  <sub>Made with ❤️ e much ☕️ by <a href="http://allancarlos.io">Allan Carlos</a>.</sub>
+  <sub>Made with much ❤️ and ☕️ by <a href="http://allancarlos.io">Allan Carlos</a>.</sub>
 </div>
 
 #### This project was built for the Udacity React Nanodegree Program. The purpose of the project is to demonstrate understanding of the basic structure and operation of a React-based app.
