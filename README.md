@@ -1,6 +1,21 @@
 # Myreads
+
 <div align="center">
-  <sub>Made with ❤️ e much ☕️ by <a href="http://allancarlos.io">Allan carlos</a>.</sub>
+  <!-- Dependency Status -->
+  <a href="https://david-dm.org/react-boilerplate/react-boilerplate">
+    <img src="https://david-dm.org/react-boilerplate/react-boilerplate.svg" alt="Dependency Status" />
+  </a>
+
+  <!-- Created by -->
+  <a href="http://allancarlos.io">
+    <img alt="Made by Allan" src="https://thinkmill.github.io/badge/heart.svg" />
+  </a>
+</div>
+
+<br />
+
+<div align="center">
+  <sub>Made with ❤️ e much ☕️ by <a href="http://allancarlos.io">Allan Carlos</a>.</sub>
 </div>
 
 #### This project was built for the Udacity React Nanodegree Program. The purpose of the project is to demonstrate understanding of the basic structure and operation of a React-based app.
