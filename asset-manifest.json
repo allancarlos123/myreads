@@ -1,7 +1,10 @@
 {
-  "main.css": "static/css/main.036730e9.css",
-  "main.css.map": "static/css/main.036730e9.css.map",
-  "main.js": "static/js/main.fbd54557.js",
-  "main.js.map": "static/js/main.fbd54557.js.map",
+  "main.css": "static/css/main.689f84ab.css",
+  "main.css.map": "static/css/main.689f84ab.css.map",
+  "main.js": "static/js/main.c00c24e8.js",
+  "main.js.map": "static/js/main.c00c24e8.js.map",
+  "static\\media\\add.svg": "static/media/add.75d390e5.svg",
+  "static\\media\\arrow-back.svg": "static/media/arrow-back.20e8847d.svg",
+  "static\\media\\arrow-drop-down.svg": "static/media/arrow-drop-down.9d4e3f36.svg",
   "static\\media\\slick.svg": "static/media/slick.f97e3bbf.svg"
 }
