@@ -21,8 +21,8 @@
 
 ## Quick start
 
-1. Clone this repo using `git clone https://github.com/allancarlos123/reactnd-project-myreads-starter.git`
-2. Move to the appropriate directory: `cd reactnd-project-myreads-starter`<br />
+1. Clone this repo using `git clone https://github.com/allancarlos123/myreads.git`
+2. Move to the appropriate directory: `cd myreads`<br />
 3. Run `npm install` or `yarn` in order to install dependencies<br />
 4. Run `npm start` or `yarn start` to run the app.
 
