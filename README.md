@@ -1,4 +1,4 @@
-# Myreads
+![MyReads](/public/favicon.ico "MyReads") # MyReads
 
 <div align="center">
   <!-- Dependency Status -->
