@@ -1,6 +1,4 @@
-<div align="center">
-  ![MyReads](/public/favicon.ico "MyReads") # MyReads
-</div>
+![MyReads](/public/favicon.ico "MyReads") # MyReads
 
 <div align="center">
   <!-- Dependency Status -->
