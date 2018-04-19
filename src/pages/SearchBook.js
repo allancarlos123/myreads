@@ -63,7 +63,8 @@ export default class SearchBook extends Component {
 SearchBook.propTypes = {
   loading: PropTypes.bool,
   results: PropTypes.array.isRequired,
-  updateShelf: PropTypes.func.isRequired
+  updateShelf: PropTypes.func.isRequired,
+  searchBook: PropTypes.func.isRequired
 };
 SearchBook.defaultProps = {
   loading: null

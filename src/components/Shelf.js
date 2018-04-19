@@ -6,8 +6,6 @@ import Slider from "react-slick";
 import sliderConfig from "../utils/sliderConfig";
 
 export default function Shelf({ title, shelf, books, updateShelf }) {
-  const currentBooks = books.filter(book => book.shelf === shelf);
-
   return (
     <Container style={{ marginTop: "3em" }}>
       <Header as="h3" dividing>
@@ -18,7 +16,7 @@ export default function Shelf({ title, shelf, books, updateShelf }) {
         <Grid.Row>
           <Grid.Column>
             <Slider {...sliderConfig}>
-              {currentBooks.map(book => (
+              {books.map(book => (
                 <div key={book.id}>
                   <Book key={book.id} book={book} updateShelf={updateShelf} />
                 </div>
