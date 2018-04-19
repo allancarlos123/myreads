@@ -19,13 +19,12 @@ export default class App extends Component {
       this.setState({ quote });
     });
 
-    BooksAPI.getAll()
-      .then(books => {
-        this.setState({
-          books,
-          loading: false
-        });
+    BooksAPI.getAll().then(books => {
+      this.setState({
+        books,
+        loading: false
       });
+    });
   }
 
   updateShelf = (shelf, book) => {
@@ -39,25 +38,26 @@ export default class App extends Component {
 
   searchBook = query => {
     if (query) {
-      this.setState({ loading: true });
+      this.setState({ loading: true }, () => {
+        BooksAPI.search(query).then(books => {
+          if (books.length) {
+            // Verify and assign the book at shelf already defined
+            // or assign "none" if the book not have a shelf
+            books.map(book => {
+              let myBook = this.state.books.find(b => b.id === book.id);
+              return (book.shelf = myBook ? myBook.shelf : "none");
+            });
 
-      BooksAPI.search(query).then(books => {
-        if (books.length) {
-          // Verify and assign the book at shelf already defined
-          // or assign "none" if the book not have a shelf
-          books.map(book => {
-            let myBook = this.state.books.find(b => b.id === book.id);
-            return book.shelf = myBook ? myBook.shelf : "none";
-          })
+            this.setState({
+              results: books,
+              loading: false
+            });
 
-          this.setState({
-            results: books,
-            loading: false
-          });
-        }
-        if (!books.length) {
-          this.setState({ loading: false })
-        }
+            return;
+          }
+
+          this.setState({ loading: false });
+        });
       });
     } else {
       this.setState({
